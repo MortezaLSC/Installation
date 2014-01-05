@@ -1,14 +1,21 @@
 What is pcalc?
-PCalc is the ULTIMATE programmers calculator. A must for anyone who develops algorithms or uses C / C++ on a regular basis.
-If you're a programmer, you've probably downloaded a so-called 'programmers calculator' at least once in your life, only to be sorely disappointed; I'm sorry, but displaying the results in hex and/or binary doesn't make a calculator a 'programmers calculator', nor does making 42 a constant in it either.
-Programmers around the world, your prayers have been answered - Behold AnalogX PCalc, the ULTIMATE programmers calculator. Forget putting up lame buttons with numbers on them; that's fine in the real world, but hardly useful in a GUI, let's instead focus on functionality, and that's just what I did.
-AnalogX PCalc allows you to enter any equation in the EXACT same format as C / C++, and it will process it with the same precedence, giving you the results in a variety of formats!...
+PCalc is the ULTIMATE programmers calculator. A must for anyone who develops algorithms or uses C / C++ on a regular
+basis.
+If you're a programmer, you've probably downloaded a so-called 'programmers calculator' at least once in your life,
+only to be sorely disappointed; I'm sorry, but displaying the results in hex and/or binary doesn't make a calculator
+a 'programmers calculator', nor does making 42 a constant in it either.
+Programmers around the world, your prayers have been answered - Behold AnalogX PCalc, the ULTIMATE programmers 
+calculator. Forget putting up lame buttons with numbers on them; that's fine in the real world, but hardly useful in 
+a GUI, let's instead focus on functionality, and that's just what I did.
+AnalogX PCalc allows you to enter any equation in the EXACT same format as C / C++, and it will process it with the 
+same precedence, giving you the results in a variety of formats!...
 
 Istalling:
 To install libdate-pcalc-perl just follow these instructions.
 Check the universe repository is enabled.
 
-Inspect /etc/apt/sources.list using your favourite editor with sudo which will ensure that you have the correct permissions.
+Inspect /etc/apt/sources.list using your favourite editor with sudo which will ensure that you have the correct 
+permissions.
 $sudo emacs -nw /etc/apt/sources.list
 Ensure that universe is included.
 
