@@ -1,4 +1,4 @@
-Address of dns-finder.py :   https://github.com/MortezaLSC/Programming/blob/Python/dns-finder.py
+dns-finder.py  ====>   https://github.com/MortezaLSC/Programming/blob/Python/dns-finder.py
 
 At first you should install python 2.7 or 3.3 on CentOS 6:
 CentOS 6.2 and 6.3 ships with Python 2.6.6. You can manually install Python 2.7 and Python 3.3 but you must be careful
