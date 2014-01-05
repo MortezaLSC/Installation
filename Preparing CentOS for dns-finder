@@ -1,18 +1,25 @@
 Address of dns-finder.py :   https://github.com/MortezaLSC/Programming/blob/Python/dns-finder.py
 
 At first you should install python 2.7 or 3.3 on CentOS 6:
-CentOS 6.2 and 6.3 ships with Python 2.6.6. You can manually install Python 2.7 and Python 3.3 but you must be careful to leave the system version alone. Several critical utilities, for example yum, depend on Python 2.6.6 and if you replace it bad things will happen.
+CentOS 6.2 and 6.3 ships with Python 2.6.6. You can manually install Python 2.7 and Python 3.3 but you must be careful
+to leave the system version alone. Several critical utilities, for example yum, depend on Python 2.6.6 and if you 
+replace it bad things will happen.
 
-Below are the steps necessary to install Python 2.7.3 and Python 3.3.0 without touching the system version of Python. The procedure is exactly the same for both versions except for the filenames. People have reported that this also works for CentOS 5.8 but I haven’t tested that. Execute all the commands below as root either by logging in as root or by using sudo.
+Below are the steps necessary to install Python 2.7.3 and Python 3.3.0 without touching the system version of Python. 
+The procedure is exactly the same for both versions except for the filenames. People have reported that this also works
+for CentOS 5.8 but I haven’t tested that. Execute all the commands below as root either by logging in as root or by 
+using sudo.
 
 Install development tools:
-In order to compile Python you must first install the development tools and a few extra libs. The extra libs are not strictly needed to compile Python but without them your new Python interpreter will be quite useless.
+In order to compile Python you must first install the development tools and a few extra libs. The extra libs are not 
+strictly needed to compile Python but without them your new Python interpreter will be quite useless.
 # yum groupinstall "Development tools"
 # yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel
 
 
 Download and install Python:
-It is critical that you use make altinstall below. If you use make install you will end up with two different versions of Python in the filesystem both named python. This can lead to problems that are very hard to diagnose.
+It is critical that you use make altinstall below. If you use make install you will end up with two different versions
+of Python in the filesystem both named python. This can lead to problems that are very hard to diagnose.
 
 
 Download and install Python 2.7.3:
@@ -31,7 +38,9 @@ Download and install Python 3.3.0:
 # ./configure --prefix=/usr/local
 # make && make altinstall
 
-After running the commands above your newly installed Python interpreter will be available as /usr/local/bin/python2.7 or /usr/local/bin/python3.3. The system version of Python 2.6.6 will continue to be available as /usr/bin/python and /usr/bin/python2.6.
+After running the commands above your newly installed Python interpreter will be available as /usr/local/bin/python2.7
+or /usr/local/bin/python3.3. The system version of Python 2.6.6 will continue to be available as /usr/bin/python 
+and /usr/bin/python2.6.
 
 After that you run the "dns-finder.py" and see there is a problem with module "netaddr". So:
 #yum install python-netaddr.noarch
