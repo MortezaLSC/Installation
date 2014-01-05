@@ -1,0 +1,10 @@
+dns-finder.py ===> https://github.com/MortezaLSC/Programming/blob/Python/dns-finder.py
+
+Just need to follow me:   :)
+
+sudo apt-get  update
+sudo apt-get dist-upgrade 
+sudo apt-get install python-netaddr
+apt-get install python-pip
+pip install dnspython
+sudo pip install dnspython
