@@ -1,0 +1,45 @@
+What is pcalc?
+PCalc is the ULTIMATE programmers calculator. A must for anyone who develops algorithms or uses C / C++ on a regular basis.
+If you're a programmer, you've probably downloaded a so-called 'programmers calculator' at least once in your life, only to be sorely disappointed; I'm sorry, but displaying the results in hex and/or binary doesn't make a calculator a 'programmers calculator', nor does making 42 a constant in it either.
+Programmers around the world, your prayers have been answered - Behold AnalogX PCalc, the ULTIMATE programmers calculator. Forget putting up lame buttons with numbers on them; that's fine in the real world, but hardly useful in a GUI, let's instead focus on functionality, and that's just what I did.
+AnalogX PCalc allows you to enter any equation in the EXACT same format as C / C++, and it will process it with the same precedence, giving you the results in a variety of formats!...
+
+Istalling:
+To install libdate-pcalc-perl just follow these instructions.
+Check the universe repository is enabled.
+
+Inspect /etc/apt/sources.list using your favourite editor with sudo which will ensure that you have the correct permissions.
+$sudo emacs -nw /etc/apt/sources.list
+Ensure that universe is included.
+
+After any changes you should run this command to update your system.
+$sudo apt-get update
+
+Install libdate-pcalc-perl:
+$sudo apt-get install libdate-pcalc-perl
+
+
+After that you should download it from http://sourceforge.net/projects/pcalc/files/:
+I chose the "pcalc-2.tar.lzma" (last version on Sunday, 5 January 2014)
+
+
+After that I faced a problem aboul -lfl so it related to libfl.so
+
+I did:
+
+$sudo apt-get install apt-file
+$sudo apt-file update
+$sudo apt-get install libfl-dev
+
+after that I compiled it:
+$cc pcalc.o pcalcl.o funct.o math.o symbol.o help.o store.o print.o str.o convert.o  -lm -lfl -o pcalc
+
+
+Then :In the pcalc directory "pcalc" script appeared
+I copied it into /usr/bin
+
+so I have:
+$pcalc x10 + 4
+	4               	0x4               	0y100
+
+
