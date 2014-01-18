@@ -1,0 +1,43 @@
+Overview
+This tutorial will walk you through the installation of Webmin 1.470 on an Ubuntu 12.04 LTS (Precise Pangolin) server.
+This tutorial assumes you are working on a brand new server with nothing else installed.
+
+Note: You must be logged in as root or a user with sudo access to perform this installation.
+
+
+Install Pre-Requisites
+Prior to installing Webmin we need to install a few pre-requisites. Type the following command below to install the
+required modules:
+
+# sudo apt-get install libnet-ssleay-perl libauthen-pam-perl libio-pty-perl apt-show-versions libapt-pkg-perl -y
+
+Install Webmin
+Before you can install Webmin you will need to download the latest copy. Point your web browser
+to http://www.webmin.com/download.html. Scroll down the list of versions and find the one that is called Debian 
+package suitable for Debian, Ubuntu or other derived Linux. Copy that link to your clipboard.
+
+On the server we will use wget to download Webmin. Type the following on your server to download:
+cd /root
+wget http://prdownloads.sourceforge.net/webadmin/webmin_1.630_all.deb
+
+Note: Your URL may be different as new versions of the webmin application are released
+
+
+Installation
+Now it is time to install the Webmin package. To do so, use the command below:
+
+dpkg -i webmin_1.630_all.deb
+
+Note: Your version number may be different as new versions of the webmin application are released.
+
+Once the installation has completed you should get the following message:
+
+ 
+Webmin install complete. You can now login to https://12.34.56.78:10000/
+as root with your root password, or as any user who can use sudo
+to run commands as root.
+
+Logging In
+You are now ready to log into your Webmin console. To do this point your web browser to 
+https://12.34.56.78:10000/ where you will be prompted with a login screen (be sure to change 12.34.56.78 to your 
+server's IP). On your first login use the username root and type in your root password.
