@@ -1,0 +1,23 @@
+How to Install Kloxo on RHEL or CentOS VPS
+
+ 
+
+The Kloxo installation process differs depending on whether you have already setup MySQL. If you have already 
+installed MySQL and set a root password, skip to the second set of steps. Otherwise, proceed below. You will need to
+be logged in to your VPS as the root user to install Kloxo.
+ 
+# yum install -y wget
+# wget http://download.lxcenter.org/download/kloxo/production/kloxo-installer.sh
+# sh ./kloxo-installer.sh --type=master
+ 
+ 
+If MySQL is already installed with a root password set:
+ 
+# yum install -y wget
+# wget http://download.lxcenter.org/download/kloxo/production/kloxo-installer.sh
+# sh ./kloxo-installer.sh --type= --db-rootpassword=PASSWORD
+ 
+ 
+Once setup is complete, you can configure Kloxo at: http://xx.xx.xx.xx:7778 
+(Login with username: admin and password: admin)
+For additional information, please see: http://wiki.lxcenter.org/Kloxo+Installation+Guide
