@@ -16,5 +16,10 @@ apt-get update
 Now you can install Plesk. For example, use the below line to install the base Plesk package:
 apt-get install psa
 
+user: admin 
+how to see plesk password:
+/usr/local/psa/bin/admin --show-password
+
+
 write in url:
 https://localhost:8443
