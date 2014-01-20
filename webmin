@@ -42,6 +42,9 @@ You are now ready to log into your Webmin console. To do this point your web bro
 https://12.34.56.78:10000/ where you will be prompted with a login screen (be sure to change 12.34.56.78 to your 
 server's IP). On your first login use the username root and type in your root password.
 
+write in url:
+https://localhost:10000
+
 #################################################################################################################
 #################################################################################################################
 #################################################################################################################
@@ -83,3 +86,6 @@ apt-get install webmin
 All dependencies should be resolved automatically.
 Supported Debian-based Distributions
 Webmin has been tested on all regular Debian releases, Ubuntu Linux, and derivatives like Xandros and APLINUX.
+
+write in url:
+https://localhost:10000
