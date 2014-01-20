@@ -1,0 +1,20 @@
+Installer: http://www.parallels.com/download/plesk 
+Install Guide: http://download1.parallels.com/Plesk/PP11/11.0/Doc/en-US/online/plesk-installation-upgrade-migration-guide/index.htm?fileName=70260.htm
+
+First, the Plesk Debian repository should be added to the sources list. The link to the Plesk Debian repository is:
+http://autoinstall.plesk.com/.
+
+Open it in a web browser to see which Plesk versions are available.
+Then add the repository record for your desired Plesk version into "/etc/apt/sources.list." For example, you would
+use the below line for 
+Plesk 11.0.9 Etch:
+deb http://autoinstall.plesk.com/PSA_11.0.9/ etch all
+
+Next, update the cache packages list:
+apt-get update
+
+Now you can install Plesk. For example, use the below line to install the base Plesk package:
+apt-get install psa
+
+write in url:
+https://localhost:8443
