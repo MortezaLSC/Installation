@@ -1,0 +1,31 @@
+Install cPanel
+Although the cPanel installation only has several steps, the installation does take a long time. Although using
+program "screen" is not necessary in order to install cPanel, it can be a very helpful addition to the installation
+process. It can be especially useful if you know that you may have issues with intermittent internet or that you will
+need to pause the lengthy install process. To start off, go ahead and install screen:
+sudo yum install screen
+
+Once screen is installed, start a new session running:
+screen
+
+After opening screen, you can proceed to install cPanel with WHM or a DNS only version of cPanel.
+Use this this command to install cPanel with WHM:
+wget -N http://httpupdate.cPanel.net/latest
+
+Use this command to install the DNS only version of cPanel:
+wget -N http://httpupdate.cPanel.net/latest-dnsonly
+
+With the requested package downloaded, we can go ahead and start the script running:
+sh latest
+
+Then close out of screen. The script, which may take one to two hours to complete will continue running while
+in the background—even if you close out the of server. In order to detach screen type: Cntrl-a-d To reattach to
+your screen you can use the command:
+screen -r
+
+Once cPanel finally installs, you can access the login by going to your ip address:2087 (eg. 12.34.45.678:2087l) or
+domain (example.com:2087) Your login will be:
+username: your_server_user
+password: your_password
+
+From there, you can create your cpanel user and finally login in at ipaddress/cpanel or domain/cpanel 
