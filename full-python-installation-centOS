@@ -24,7 +24,7 @@ Download and install Python 2.7.3:
 # tar xf Python-2.7.3.tar.bz2
 # cd Python-2.7.3
 # ./configure --prefix=/usr/local
-# make && make 
+# make && make altinstall
 
 Download and install Python 3.3.0:
 # wget http://python.org/ftp/python/3.3.0/Python-3.3.0.tar.bz2
