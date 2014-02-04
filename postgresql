@@ -1,0 +1,152 @@
+Introduction
+PostgreSQL is a powerful object-relational database management system, provided under a flexible BSD-style license.
+[1] PostgreSQL contains many advanced features, is very fast and standards compliant.
+
+PostgreSQL has bindings for many programming languages such as C, C++, Python, Java, PHP, Ruby... It can be used to 
+power anything from simple web applications to massive databases with millions of records.
+
+Client Installation
+If you only wish to connect to a PostgreSQL server, do not install the whole PostgreSQL package, but install the
+PostgreSQL client instead. To do this, use the following command
+
+
+ sudo apt-get install postgresql-client
+you then connect to the server with the following command
+
+
+ psql -h server.domain.org database user
+
+After you inserted the password you access PostgreSQL with line commands. You may for instance insert the following
+
+
+ SELECT * FROM table WHERE 1;
+You exit the connection with
+
+ \q
+Installation
+To install use the command line and type:
+
+ sudo apt-get install postgresql
+Administration
+
+pgAdmin III is a handy GUI for PostgreSQL, it is essential to beginners. To install it, type at the command line:
+
+
+ sudo apt-get install pgadmin3
+You may also use the Synaptic package manager from the System>Administration menu to install these packages.
+
+Basic Server Setup
+To start off, we need to change the PostgreSQL postgres user password; we will not be able to access the server 
+otherwise. As the “postgres” Linux user, we will execute the psql command.
+
+In a terminal, type:
+
+
+sudo -u postgres psql postgres
+Set a password for the "postgres" database role using the command:
+
+\password postgres
+and give your password when prompted. The password text will be hidden from the console for security purposes.
+
+Type Control+D to exit the posgreSQL prompt.
+
+Create database
+
+To create the first database, which we will call "mydb", simply type:
+
+
+ sudo -u postgres createdb mydb
+Install Server Instrumentation for Postgresql 8.4 or 9.1
+
+To install Server Instrumentation, you must install postgresql-contrib:
+
+
+ sudo apt-get install postgresql-contrib
+For ""Postgresql 8.4"", run the adminpack.sql script, simply type:
+
+ sudo -u postgres psql < /usr/share/postgresql/8.4/contrib/adminpack.sql
+For ""Postgresql 9.1""+ install the adminpack "extension":
+
+
+ sudo -u postgres psql
+ CREATE EXTENSION adminpack;
+Alternative Server Setup
+If you don't intend to connect to the database from other machines, this alternative setup may be simpler.
+
+By default in Ubuntu, Postgresql is configured to use 'ident sameuser' authentication for any connections from the 
+same machine. Check out the excellent Postgresql documentation for more information, but essentially this means that
+if your Ubuntu username is 'foo' and you add 'foo' as a Postgresql user then you can connect to the database without 
+requiring a password.
+
+Since the only user who can connect to a fresh install is the postgres user, here is how to create yourself a database
+account (which is in this case also a database superuser) with the same name as your login name and then create a 
+password for the user:
+
+ sudo -u postgres createuser --superuser $USER
+ sudo -u postgres psql
+
+ postgres=# \password $USER
+Client programs, by default, connect to the local host using your Ubuntu login name and expect to find a database with
+that name too. So to make things REALLY easy, use your new superuser privileges granted above to create a database with 
+the same name as your login name:
+
+ sudo -u postgres createdb $USER
+Connecting to your own database to try out some SQL should now be as easy as:
+
+ psql
+Creating additional database is just as easy, so for example, after running this:
+
+ create database amarokdb;
+You can go right ahead and tell Amarok to use postgresql to store its music catalog. The database name would be 
+amarokdb, the username would be your own login name, and you don't even need a password thanks to 'ident sameuser' so
+you can leave that blank.
+
+Using pgAdmin III GUI
+To get an idea of what PostgreSQL can do, you may start by firing up a graphical client. In a terminal type :
+
+
+ pgadmin3
+You will be presented with the pgAdmin III interface. Click on the "Add a connection to a server" button (top left).
+In the new dialog, enter the address 127.0.0.1, a description of the server, the default database ("mydb" in the example 
+above), your username ("postgres") and your password.
+
+With this GUI you may start creating and managing databases, query the database, execute SQl etc.
+
+Managing the Server
+Managing users and rights
+
+To manage users, you first have to edit /etc/postgresql/8.1/main/pg_hba.conf and modify the default configuration which
+is very protective. For example, if you want postgres to manage its own users (not linked with system users), you will 
+add the following line:
+
+8<-------------------------------------------
+# TYPE  DATABASE    USER        IP-ADDRESS        IP-MASK           METHOD
+host    all         all         10.0.0.0       255.255.255.0    md5
+8<-------------------------------------------
+Which means that on your local network (10.0.0.0/24 - replace with your own local network !), postgres users can connect
+through the network to the database providing a classical couple user / password.
+
+Besides allowing a user to connect over the network to the to a database on the server, you must enable postgre to 
+listen across different networks. To do that, open up /etc/postgresql/8.3/main/postgresql.conf in your favourite editor 
+and alter the listen_addresses as below:
+
+listen_addresses = '10.0.0.1,localhost'
+where 10.0.0.1 describes the server's IP address on the local network. Note that this setting is commented out by
+default.
+
+To create a database with a user that have full rights on the database, use the following command:
+
+
+sudo -u postgres createuser -D -A -P myuser
+sudo -u postgres createdb -O myuser mydb
+The first command line creates the user with no database creation rights (-D) with no add user rights -A) and will 
+prompt you for entering a password (-P). The second command line create the database 'mydb with 'myuser' as owner.
+
+This little example will probably suit most of your needs. For more details, please refer to the corresponding man
+pages or the online documentation.
+
+restarting the server
+
+After configuring the networking / users you may need to restart the server, here is a suggested command to do so.
+
+sudo /etc/init.d/postgresql-8.3 restart
